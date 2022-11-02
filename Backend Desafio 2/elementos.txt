@@ -1,1 +1,22 @@
-[{"titulo":"Cortina","precio":1700,"id":2},{"titulo":"Mantel","precio":2000,"id":3},{"titulo":"Repasador","precio":1500,"id":4}]
+[
+	{
+		"titulo": "Alfombra",
+		"precio": 1200,
+		"id": 1
+	},
+	{
+		"titulo": "Cortina",
+		"precio": 1700,
+		"id": 2
+	},
+	{
+		"titulo": "Mantel",
+		"precio": 2000,
+		"id": 3
+	},
+	{
+		"titulo": "Repasador",
+		"precio": 1500,
+		"id": 4
+	}
+]

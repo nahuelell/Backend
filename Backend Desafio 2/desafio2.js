@@ -38,7 +38,7 @@ class Contenedor {
                 if (!buscar) {
                     throw new Error(`elemento con id ${id} no encontrado`)
                 } else {
-                    return buscar
+                    console.log(buscar)
                 }
             }
         }
@@ -71,19 +71,38 @@ class Contenedor {
         }
     }
 }
-async function test() {
-    const elements = new Contenedor('./elementos.txt');
+const elements = new Contenedor('./elementos.txt');
 
+async function test() {
     await elements.save('Alfombra', 1200, '0001');
     await elements.save('Cortina', 1700, '0002');
     await elements.save('Mantel', 2000, '0003');
-    const id = await elements.save('Repasador', 1500, '0004')
-    console.log(id)
-    const eleme = await elements.getById(2);
-    console.log(eleme)
-    await elements.deleteById(1);
-    const elemes = await elements.getAll();
-    console.log(elemes)
+    await elements.save('Repasador', 1500, '0004')
+}
+test()
+function generateRandom(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (1 + max - min) + min);
 }
 
-test()
+const express = require('express')
+const servidor = express()
+
+servidor.get('/productos', (peticion, respuesta) => {
+    respuesta.json(elements.getAll())
+})
+servidor.get('/productosRandom', (peticion, respuesta) => {
+
+    respuesta.json(elements.getById(generateRandom(1, 4)))
+})
+
+function conectar(puerto) {
+    return new Promise((resolve, reject) => {
+        const servidorConectador = servidor.listen(puerto, (err, result) => {
+            if (err) reject(err)
+            else resolve(servidorConectador)
+        })
+    })
+}
+module.exports = { conectar }

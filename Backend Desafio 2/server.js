@@ -1,4 +1,4 @@
-const { conectar } = require("./router.js")
+const { conectar } = require("./desafio2.js")
 
 async function main() {
     try {
