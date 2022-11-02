@@ -1,0 +1,14 @@
+{
+  "name": "backend-desafio-2",
+  "version": "1.0.0",
+  "description": "Desafios 2,3 y 4",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Nahuel Alejandro Lell Cañete",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
